@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC e-Services - Document Portal</title>
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --primary-dark: #0369a1;
+            --success-color: #16a34a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            background-color: #e0f2fe;
+            color: var(--primary-dark);
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            background-color: #15803d;
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        footer span {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.35rem;
+            }
+            th, td {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-file-shield"></i> இ-சேவை Download Portal</h1>
+        <p>Secure Document Repository & Application Forms</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Document Name</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TNUWWB Employment Certificate</strong></td>
+                            <td><span class="badge">Welfare Board</span></td>
+                            <td>
+                                <button class="btn-download" onclick="secureDownload('TNUWWB Employment Certificate', 'https://drive.google.com/file/d/1nQa3Bz0KILoNVwW1WjFQ5DpTkOPHMVdd/view?usp=sharing')">
+                                    <i class="fa-solid fa-lock"></i> Download PDF
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>TNUWWB Education Claim Form</strong></td>
+                            <td><span class="badge">Welfare Board</span></td>
+                            <td>
+                                <button class="btn-download" onclick="secureDownload('TNUWWB Education Claim Form', 'https://drive.google.com/file/d/1okqfUNWK_EN1ewe88nrzPrghMoWuh4iB/view?usp=sharing')">
+                                    <i class="fa-solid fa-lock"></i> Download PDF
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aadhaar HOF Declaration Form</strong></td>
+                            <td><span class="badge">UIDAI / Aadhaar</span></td>
+                            <td>
+                                <button class="btn-download" onclick="secureDownload('Aadhaar HOF Declaration Form', 'https://drive.google.com/file/d/1kqh6hKWtMF7K-UPqXbLYhJSvkCafBqTb/view?usp=sharing')">
+                                    <i class="fa-solid fa-lock"></i> Download PDF
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aadhaar Enrolment Form</strong></td>
+                            <td><span class="badge">UIDAI / Aadhaar</span></td>
+                            <td>
+                                <button class="btn-download" onclick="secureDownload('Aadhaar Enrolment Form', 'https://drive.google.com/file/d/1dLBpz2p5Unmpug60u17L47KewuY87hJ_/view?usp=sharing')">
+                                    <i class="fa-solid fa-lock"></i> Download PDF
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aadhaar Address Certificate Form</strong></td>
+                            <td><span class="badge">UIDAI / Aadhaar</span></td>
+                            <td>
+                                <button class="btn-download" onclick="secureDownload('Aadhaar Address Certificate Form', 'https://drive.google.com/file/d/13rAxLQUtEtBP2oPieRI9F4VMnsbGin-1/view?usp=sharing')">
+                                    <i class="fa-solid fa-lock"></i> Download PDF
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed by <span>Ajith</span>, CSC VLE/RAP, CSC eGovernance Services India Ltd.</p>
+    </footer>
+
+    <script>
+        // Secure Password Prompt & Google Drive Link Redirect
+        function secureDownload(fileName, gdriveUrl) {
+            // Set your desired download password here
+            const correctPassword = "csc123"; 
+
+            const passKey = prompt("Enter the security password to download [" + fileName + "]:");
+
+            if (passKey === null) {
+                return; // User cancelled
+            }
+
+            if (passKey === correctPassword) {
+                alert("Password verified successfully! Opening download link...");
+                
+                // Converts a standard GDrive share link into a direct download format if needed, or opens it directly
+                let finalUrl = gdriveUrl;
+                if (gdriveUrl.includes("drive.google.com")) {
+                    const fileIdMatch = gdriveUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                    if (fileIdMatch && fileIdMatch[1]) {
+                        finalUrl = `https://drive.google.com/uc?export=download&id=${fileIdMatch[1]}`;
+                    }
+                }
+
+                window.open(finalUrl, '_blank');
+            } else {
+                alert("Incorrect password! Access denied.");
+            }
+        }
+    </script>
+</body>
+</html>
